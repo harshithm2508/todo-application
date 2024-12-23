@@ -15,10 +15,10 @@ datasource db {
 
 model User {
   id        Int     @id @unique @default(autoincrement())
-  userId    String  @unique
+  userId    String
   name      String
   firstName String
   lastName  String?
-  email     String
+  email     String  @unique
   picture   String
 }

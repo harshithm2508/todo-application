@@ -8,19 +8,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         async signIn({account, credentials, email, profile, user}) {
             
             try {
-                
-                const dataFeed = await prisma.user.create({
-                    data : {
-                        userId : user.id!,
-                        name : user.name!,
-                        firstName : profile?.given_name!,
-                        lastName : profile?.family_name,
+
+                const userExistence = await prisma.user.findUnique({
+                    where : {
                         email : user.email!,
-                        picture : user.image!
                     }
                 })
-
-                console.log(` User with id : ${dataFeed.userId} `)
+                
+                if(!userExistence){
+                    const dataFeed = await prisma.user.create({
+                        data : {
+                            userId : user.id!,
+                            name : user.name!,
+                            firstName : profile?.given_name!,
+                            lastName : profile?.family_name,
+                            email : user.email!,
+                            picture : user.image!
+                        }
+                    })
+    
+                    console.log(` User with id : ${dataFeed.userId} created.`)
+                }
 
             } catch(err) {
                 console.log("There was an error in creating the user");

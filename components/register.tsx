@@ -6,7 +6,9 @@ export default function Register() {
         <form action={
             async () => {
                 "use server"
-                await signIn("google")
+                await signIn("google",{
+                    redirectTo : '/dashboard'
+                })
             }
         }>
             <Button type="submit">

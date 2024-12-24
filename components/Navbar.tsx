@@ -9,7 +9,7 @@ export default async function Navbar() {
 
     return(
         <div className=" flex items-center justify-between px-10 py-2 border-b-2 border-black">
-            <div>
+            <div className=" text-blue-500 font-bold text-2xl">
                 Todo-Application
             </div>
             {

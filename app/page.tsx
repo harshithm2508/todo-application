@@ -1,19 +1,13 @@
 import { auth } from "@/auth"
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/db";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   const session = await auth();
   return(
-    <div className="">
-      {(session!=null) ? (JSON.stringify(session,null,2)) : (
-        <div>
-          Landing Page
-        </div>
-      )}
-      <div>
-        <img src={session?.user?.image!} alt="" />
-      </div>
+    <div>
+      {session ? redirect('/dashboard') : "Landing Page"}
     </div>
   )
 }

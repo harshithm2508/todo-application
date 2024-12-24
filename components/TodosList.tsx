@@ -74,10 +74,17 @@ export default function TodosList(){
             <div className=" flex flex-col mt-5 ">
                 {
                     todos.length === 0 ? "You don't have todos. Go buy some Biryani have it and take rest" : 
-                    todos.map(todo => {
-                        return <div>
-                            <Todo title={todo.title} description={todo.description} status={todo.status} date={todo.date}/>
-                        </div>
+                    todos.map((todo, index) => {
+                        return (
+                            <div key={index}>
+                                <Todo 
+                                    title={todo.title} 
+                                    description={todo.description} 
+                                    status={todo.status} 
+                                    date={todo.date} 
+                                />
+                            </div>
+                        );
                     })
                 }
             </div>

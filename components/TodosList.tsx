@@ -1,6 +1,7 @@
 import Todo from "./Todo"
+import { TodoProps } from "./Todo";
 
-const todos = [
+const todos : TodoProps[] = [
     {
         title: "Complete Assignment",
         description: "Finish the math assignment for chapter 3.",
@@ -66,12 +67,20 @@ const todos = [
 
 export default function TodosList(){
     return(
-        <div className=" flex flex-col mt-5">
-            {todos.map(todo => {
-                return <div>
-                    <Todo title={todo.title} description={todo.description} status={todo.status} date={todo.date}/>
-                </div>
-            })}
+        <div>
+            <div className=" font-semibold text-3xl mt-2">
+                Your Todos :
+            </div>
+            <div className=" flex flex-col mt-5 ">
+                {
+                    todos.length === 0 ? "You don't have todos. Go buy some Biryani have it and take rest" : 
+                    todos.map(todo => {
+                        return <div>
+                            <Todo title={todo.title} description={todo.description} status={todo.status} date={todo.date}/>
+                        </div>
+                    })
+                }
+            </div>
         </div>
     )
 }

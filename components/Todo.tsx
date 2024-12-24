@@ -1,4 +1,6 @@
-interface TodoProps{
+import clsx from "clsx";
+
+export interface TodoProps{
     title : string;
     description : string;
     status : boolean;
@@ -11,7 +13,9 @@ export default function Todo({ title, description, status,  date} : TodoProps) {
             <div className=" flex justify-center items-center min-w-12 mr-2">
                 <input type="checkbox" />
             </div>
-            <div>{title}</div>
+            <div className={
+                clsx(status === true ? "text-green-500 font-bold" : "text-red-500 font-bold") 
+            }>{title}</div>
             <div className=" min-w-24 flex justify-center items-center">{date}</div>
         </div>
     )

@@ -31,8 +31,32 @@ export default function Todo({ title, description, status,  date} : TodoProps) {
                 ' px-5 py-2 shadow-lg w-1/2 border-t-2 border-black',
                 {'hidden' : descriptionVisibility === false}
             )}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam expedita maiores, temporibus, laudantium similique quibusdam facere ex alias, accusamus voluptates rerum adipisci odit quo iure quas nisi sint mollitia animi!
+                <DropDownDescription title={title} description={description} status={status} date={date}/>
             </div>
         </div>
+    )
+}
+
+
+const DropDownDescription = ({title, description, status, date} : TodoProps) =>  {
+    return(
+        <table>
+            <tbody>
+                <RowInTable title="Title" right={title}/>
+                <RowInTable title={"Description"} right={description}/>
+                <RowInTable title="Status" right={status ? "Done" : "Incomplete"} />
+                <RowInTable title="To be completed by " right={date}/>
+            </tbody>
+        </table>
+    )
+}
+
+
+const RowInTable = ({title, right} : {title : string , right : string}) => {
+    return(
+        <tr className="">
+            <td className=" pr-20">{title}</td>
+            <td>{right}</td>
+        </tr>
     )
 }

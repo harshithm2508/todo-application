@@ -4,7 +4,7 @@ import { TodoProps } from "./Todo";
 const todos : TodoProps[] = [
     {
         title: "Complete Assignment",
-        description: "Finish the math assignment for chapter 3.",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, quibusdam! Neque debitis quia ipsum tempora quas. Libero ullam repellendus obcaecati odit suscipit tempore esse iure eius? Quaerat doloremque eius pariatur.",
         status: true,
         date: "24-12-2024",
     },

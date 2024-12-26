@@ -21,6 +21,7 @@ export default async function Navbar() {
 
                 <div className=" flex gap-5 items-center">
                     <img src={session.user?.image!} className=" h-10 w-10 rounded-full" alt="User Log" />
+                    <div>{session.user?.name}</div>
                     <SignOut/>
                 </div>
             }
